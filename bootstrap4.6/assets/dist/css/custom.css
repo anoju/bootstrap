@@ -55,7 +55,7 @@
 /* .bd-sidebar */
 .bd-sidebar{background:#d3b183;}
 @supports ((position:-webkit-sticky) or (position:sticky)){
-    .bd-sidebar{position:-webkit-sticky;position:sticky;top:4rem;z-index:1000;height:calc(100vh - 4rem)}
+    .bd-sidebar{position:-webkit-sticky;position:sticky;top:4rem;z-index:9;height:calc(100vh - 4rem)}
     @media (max-width: 991.98px){
         .bd-sidebar{top:80px;height:calc(100vh - 80px)}
     }
