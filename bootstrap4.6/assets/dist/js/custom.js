@@ -20,15 +20,38 @@
 (function($){
     'use strict'
     $(function(){
-        $('.navbar-btn, .sidebar-close').click(function(e){
+        //헤더
+        $('.kb-navbar-btn, .kb-sidebar-close').click(function(e){
             e.preventDefault();
-            var sideBar = $('.bd-sidebar')
+            var sideBar = $('.kb-sidebar')
             if(sideBar.hasClass('open')){
                 sideBar.removeClass('open');
             }else{
                 sideBar.addClass('open');
             }
         });
+
+        //사이드바
+        $(document).on('click','.kb-lnb-link.in-sub',function(e){
+            e.preventDefault();
+            var $this = $(this);
+            var $subMenu = $this.next()
+            if($this.hasClass('open')){
+                $this.removeClass('open');
+                $subMenu.stop(true, false).slideUp(300);
+            }else{
+                $this.addClass('open');
+                $subMenu.stop(true, false).slideDown(300);
+                $this.parent().siblings().find('>.open').each(function(){
+                    var $open = $(this)
+                    $open.removeClass('open');
+                    $open.next().stop(true, false).slideUp(300);
+                });
+            }
+
+        });
+
+
         $('.tooltip-demo').tooltip({selector:'[data-toggle="tooltip"]',container:'body'});
         $('[data-toggle="popover"]').popover();
         $('.bd-example .toast').toast({autohide:false}).toast('show');
