@@ -20,40 +20,32 @@
 (function($){
     'use strict'
     $(function(){
-        $('.navbar-btn, .sidebar-close').click(function(e){
+        //헤더
+        $('.kb-navbar-btn, .kb-sidebar-close').click(function(e){
             e.preventDefault();
-            var sideBar = $('.bd-sidebar')
+            var sideBar = $('.kb-sidebar')
             if(sideBar.hasClass('open')){
                 sideBar.removeClass('open');
+                $('body').removeClass('gnb-open')
             }else{
                 sideBar.addClass('open');
+                $('body').addClass('gnb-open')
             }
         });
-        $('.tooltip-demo').tooltip({selector:'[data-toggle="tooltip"]',container:'body'});
-        $('[data-toggle="popover"]').popover();
-        $('.bd-example .toast').toast({autohide:false}).toast('show');
-        $('#liveToastBtn').click(function(){$('#liveToast').toast('show')});
-        $('.tooltip-test').tooltip();
-        $('.popover-test').popover();
-        $('.bd-example-indeterminate [type="checkbox"]').prop('indeterminate',true);
+
+        //사이드바
+        sidebarEvt();
+
+        //컴포넌트
         $('.bd-content [href="#"]').click(function(e){e.preventDefault()});
-        $('#exampleModal').on('show.bs.modal',function(event){
-            var $button=$(event.relatedTarget);
-            var recipient=$button.data('whatever');
-            var $modal=$(this);
-            $modal.find('.modal-title').text('New message to '+recipient);
-            $modal.find('.modal-body input').val(recipient);
+        $('[data-toggle="tooltip"]').tooltip()
+        $('[data-toggle="popover"]').popover();
+        $('[data-toast]').click(function () {
+            var tar = $(this).data('toast');
+            $(tar).toast('show');
         });
-        $('.bd-toggle-animated-progress').on('click',function(){
-            $(this).siblings('.progress').find('.progress-bar-striped').toggleClass('progress-bar-animated');
-        });
-        $('div.highlight').each(function(){
-            var btnHtml='<div class="bd-clipboard"><button type="button" class="btn-clipboard" title="Copy to clipboard">Copy</button></div>';
-            $(this).before(btnHtml);
-            $('.btn-clipboard').tooltip().on('mouseleave',function(){
-                $(this).tooltip('hide');
-            });
-        });
+        
+
         var clipboard = new ClipboardJS('.btn-clipboard',{
             target:function(trigger){
                 return trigger.parentNode.nextElementSibling;
@@ -68,11 +60,112 @@
             var fallbackMsg='Press '+modifierKey+'C to copy';
             $(e.trigger).attr('title',fallbackMsg).tooltip('_fixTitle').tooltip('show').attr('title','Copy to clipboard').tooltip('_fixTitle');
         });
-        //anchors.options={icon:'#'};
-        //anchors.add('.bd-content > h2, .bd-content > h3, .bd-content > h4, .bd-content > h5');
-        //$('.bd-content').children('h2, h3, h4, h5').wrapInner('<span class="bd-content-title"></span>');
-        bsCustomFileInput.init()
+        bsCustomFileInput.init();
+        
+
+        //btnTopEvt
+        btnTopEvt();
+
+        //page title fixed
+        pageTitleEvt();
     })
+
+    var sidebarEvt = function(){
+        var $link = $('.kb-lnb-link');
+        var $path = location.pathname;
+        $link.each(function(){
+            var $this = $(this);
+            var $href = $this.attr('href');
+            if($this.next().length)$this.addClass('in-sub');
+            if($path.indexOf($href) > 0){
+                $this.addClass('active');
+                $this.parents('ul').prev('.kb-lnb-link').addClass('active');
+            }
+        });
+
+        var $active = $('.kb-lnb-link.active');
+        $active.each(function(){
+            var $this = $(this);
+            if($this.hasClass('in-sub')){
+                $this.addClass('open');
+                $this.next().show();
+            }
+        });
+
+        $(document).on('click','.kb-lnb-link.in-sub',function(e){
+            e.preventDefault();
+            var $this = $(this);
+            var $subMenu = $this.next()
+            if($this.hasClass('open')){
+                $this.removeClass('open');
+                $subMenu.stop(true, false).slideUp(300);
+            }else{
+                $this.addClass('open');
+                $subMenu.stop(true, false).slideDown(300);
+                $this.parent().siblings().find('>.open').each(function(){
+                    var $open = $(this)
+                    $open.removeClass('open');
+                    $open.next().stop(true, false).slideUp(300);
+                });
+            }
+
+        });
+    };
+
+    var btnTopEvt = function(){
+        var settings = {
+			button:'#btnTop',
+			text:'컨텐츠 상단으로 이동',
+			min:100,
+			onClass:'on',
+			hoverClass:'hover',
+			scrollSpeed:300
+		};
+		var btnHtml = '<a href="#" id="'+settings.button.substring(1)+'" class="btn-scl-top" title="'+settings.text+'" role="button" aria-label="'+settings.text+'"><i class="bi bi-arrow-up-short"></i></a>';
+		if(!$(settings.button).length){
+			$('body').append(btnHtml);
+		
+			$(document).on('click',settings.button,function(e){
+				e.preventDefault();
+				$('html, body').animate({scrollTop:0},settings.scrollSpeed);
+			}).on('mouseenter',function(){
+				$(settings.button).addClass(settings.hoverclass);
+			}).on('mouseleave',function(){
+				$(settings.button).removeClass(settings.hoverClass);
+			});
+
+			var btnTopOn = function(){
+				$(settings.button).attr('aria-hidden','false').addClass(settings.onClass);
+			};
+
+			var btnTopOff = function(){
+				$(settings.button).attr('aria-hidden','true').removeClass(settings.onClass);
+			};			
+
+			$(window).on('scroll',function(){
+                var $SclTop = $(this).scrollTop();
+				if($SclTop > settings.min){
+					btnTopOn();
+				}else{
+					btnTopOff();
+				}
+			});
+		}
+    }
+
+    var pageTitleEvt = function(){
+        $(window).scroll(function(){
+            var $SclTop = $(this).scrollTop();
+            var $title = $('.kb-page-title');
+            var $titleTop = $title.offset().top;
+            var $headH = $('.kb-navbar').outerHeight();
+            if($SclTop > ($titleTop - $headH)){
+                $title.addClass('fixed')
+            }else{
+                $title.removeClass('fixed')
+            }
+        });
+    }
 })(jQuery);
 (function(){
     'use strict'
