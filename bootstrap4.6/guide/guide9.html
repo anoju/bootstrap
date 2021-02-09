@@ -171,9 +171,11 @@
                             <label for="exampleInputPassword1">Password</label>
                             <input type="password" class="form-control" id="exampleInputPassword1" />
                         </div>
-                        <div class="form-group form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="exampleCheck1" />
+                                <label class="custom-control-label" for="exampleCheck1">Check me out</label>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
@@ -210,12 +212,12 @@
                     </form>
                     <br /><br />
                     <h4 class="h4">input:file</h4>
-                    <form>
+                    <!-- <form>
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Example file input</label>
                             <input type="file" class="form-control-file" id="exampleFormControlFile1" />
                         </div>
-                    </form>
+                    </form> -->
                     <div class="custom-file">
                         <input type="file" class="custom-file-input" id="customFile" />
                         <label class="custom-file-label" for="customFile" data-browse="파일선택">파일선택</label>
@@ -223,15 +225,19 @@
 
                     <h3 class="h3">Sizing</h3>
                     <input class="form-control form-control-lg" type="text" placeholder=".form-control-lg" />
+                    <br />
                     <input class="form-control" type="text" placeholder="Default input" />
+                    <br />
                     <input class="form-control form-control-sm" type="text" placeholder=".form-control-sm" />
-                    <br /><br />
+                    <br />
                     <select class="form-control form-control-lg">
                         <option>Large select</option>
                     </select>
+                    <br />
                     <select class="form-control">
                         <option>Default select</option>
                     </select>
+                    <br />
                     <select class="form-control form-control-sm">
                         <option>Small select</option>
                     </select>
@@ -242,12 +248,14 @@
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
+                    <br /><br />
                     <select class="custom-select">
                         <option selected>Open this select menu</option>
                         <option value="1">One</option>
                         <option value="2">Two</option>
                         <option value="3">Three</option>
                     </select>
+                    <br /><br />
                     <select class="custom-select custom-select-sm">
                         <option selected>Open this select menu</option>
                         <option value="1">One</option>
@@ -300,7 +308,7 @@
                         <input type="range" class="custom-range" min="0" max="5" id="customRange2" />
                     </div>
                     <h3 class="h3">Checkboxes</h3>
-                    <div class="form-check">
+                    <!-- <div class="form-check">
                         <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" />
                         <label class="form-check-label" for="defaultCheck1"> Default checkbox </label>
                     </div>
@@ -324,11 +332,15 @@
                     <h4 class="h4">Without labels</h4>
                     <div class="form-check">
                         <input class="form-check-input position-static" type="checkbox" id="blankCheckbox" value="option1" aria-label="..." />
-                    </div>
+                    </div> -->
                     <h4 class="h4">custom</h4>
                     <div class="custom-control custom-checkbox">
                         <input type="checkbox" class="custom-control-input" id="customCheck1" />
                         <label class="custom-control-label" for="customCheck1">Check this custom checkbox</label>
+                    </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheck2" disabled />
+                        <label class="custom-control-label" for="customCheck2">Check this custom checkbox disabled</label>
                     </div>
                     <div class="custom-control custom-checkbox custom-control-inline">
                         <input type="checkbox" class="custom-control-input" id="customCheckCustom1" />
@@ -338,9 +350,13 @@
                         <input type="checkbox" class="custom-control-input" id="customCheckCustom2" />
                         <label class="custom-control-label" for="customCheckCustom2">Check this custom checkbox</label>
                     </div>
+                    <div class="custom-control custom-checkbox">
+                        <input type="checkbox" class="custom-control-input" id="customCheckCustom3" />
+                        <label class="custom-control-label" for="customCheckCustom3"><span class="sr-only">선택</span></label>
+                    </div>
 
                     <h3 class="h3">radios</h3>
-                    <div class="form-check">
+                    <!-- <div class="form-check">
                         <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked />
                         <label class="form-check-label" for="exampleRadios1"> Default radio </label>
                     </div>
@@ -368,7 +384,7 @@
                     <h4 class="h4">Without labels</h4>
                     <div class="form-check">
                         <input class="form-check-input position-static" type="radio" name="blankRadio" id="blankRadio1" value="option1" aria-label="..." />
-                    </div>
+                    </div> -->
                     <h4 class="h4">custom</h4>
                     <div class="custom-control custom-radio">
                         <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input" />
@@ -453,25 +469,25 @@
                         <fieldset class="form-group row">
                             <legend class="col-form-label col-sm-2 float-sm-left pt-0">Radios</legend>
                             <div class="col-sm-10">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked />
-                                    <label class="form-check-label" for="gridRadios1"> First radio </label>
+                                <div class="custom-control custom-radio">
+                                    <input class="custom-control-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked />
+                                    <label class="custom-control-label" for="gridRadios1"> First radio </label>
                                 </div>
-                                <div class="form-check">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" />
-                                    <label class="form-check-label" for="gridRadios2"> Second radio </label>
+                                <div class="custom-control custom-radio">
+                                    <input class="custom-control-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" />
+                                    <label class="custom-control-label" for="gridRadios2"> Second radio </label>
                                 </div>
-                                <div class="form-check disabled">
-                                    <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled />
-                                    <label class="form-check-label" for="gridRadios3"> Third disabled radio </label>
+                                <div class="custom-control custom-radio disabled">
+                                    <input class="custom-control-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled />
+                                    <label class="custom-control-label" for="gridRadios3"> Third disabled radio </label>
                                 </div>
                             </div>
                         </fieldset>
                         <div class="form-group row">
                             <div class="col-sm-10 offset-sm-2">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="gridCheck1" />
-                                    <label class="form-check-label" for="gridCheck1"> Example checkbox </label>
+                                <div class="custom-control custom-checkbox">
+                                    <input class="custom-control-input" type="checkbox" id="gridCheck1" />
+                                    <label class="custom-control-label" for="gridCheck1"> Example checkbox </label>
                                 </div>
                             </div>
                         </div>
@@ -533,9 +549,9 @@
                                 </div>
                             </div>
                             <div class="col-auto">
-                                <div class="form-check mb-2">
-                                    <input class="form-check-input" type="checkbox" id="autoSizingCheck" />
-                                    <label class="form-check-label" for="autoSizingCheck"> Remember me </label>
+                                <div class="custom-control custom-checkbox mb-2">
+                                    <input class="custom-control-input" type="checkbox" id="autoSizingCheck" />
+                                    <label class="custom-control-label" for="autoSizingCheck"> Remember me </label>
                                 </div>
                             </div>
                             <div class="col-auto">
