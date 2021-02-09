@@ -7,6 +7,7 @@
   margin-bottom: $spacer;
   color: $table-color;
   background-color: $table-bg; // Reset for nesting within parents with `background-color`.
+  border-bottom: $table-border-width solid $table-border-color;
 
   th,
   td {
@@ -15,14 +16,33 @@
     border-top: $table-border-width solid $table-border-color;
   }
 
-  thead th {
-    vertical-align: bottom;
-    border-bottom: (2 * $table-border-width) solid $table-border-color;
+  thead {
+    > tr:first-child{
+      th,
+      td{
+        border-top-color: $gray-500;
+      }
+    }
+    th {
+      vertical-align: bottom;
+      // border-bottom: (2 * $table-border-width) solid $table-border-color;
+    }
+    + tbody{
+      > tr:first-child{
+        th,
+        td{
+          border-top-color: $gray-500;
+        }
+      }
+    }
   }
 
-  tbody + tbody {
-    border-top: (2 * $table-border-width) solid $table-border-color;
-  }
+  tbody{
+    + tbody {
+      // border-top: (2 * $table-border-width) solid $table-border-color;
+      border-top-color: $gray-500;
+    }
+  } 
 }
 
 
@@ -51,14 +71,22 @@
   }
 
   thead {
+    > tr:first-child{
+      th,
+      td{
+        border-top-color: $table-border-color;
+      }
+    }
+
     th,
     td {
-      border-bottom-width: 2 * $table-border-width;
+      // border-bottom-width: 2 * $table-border-width;
     }
   }
 }
 
 .table-borderless {
+  border-bottom-width:0;
   th,
   td,
   thead th,
@@ -130,11 +158,16 @@
 .table-dark {
   color: $table-dark-color;
   background-color: $table-dark-bg;
+  border-bottom-width: 0;
 
   th,
   td,
   thead th {
     border-color: $table-dark-border-color;
+  }
+  thead>tr:first-child{
+    th,
+    td{border-top-width:0;}
   }
 
   &.table-bordered {
