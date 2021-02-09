@@ -158,117 +158,102 @@
                     <!-- //컨텐츠헤더 -->
 
                     <!-- 컨텐츠본문 -->
-                    <h2 class="h2"><a href="https://getbootstrap.com/docs/4.6/components/pagination/" target="_blank">Pagination</a></h2>
+                    <h2 class="h2"><a href="https://getbootstrap.com/docs/4.6/layout/overview/" target="_blank">Overview</a></h2>
+                    <h3>Containers</h3>
+                    <p>Bootstrap comes with three different containers:</p>
+                    <ul>
+                        <li><code>.container</code>, which sets a <code>max-width</code> at each responsive breakpoint</li>
+                        <li><code>.container-fluid</code>, which is <code>width: 100%</code> at all breakpoints</li>
+                        <li><code>.container-{breakpoint}</code>, which is <code>width: 100%</code> until the specified breakpoint</li>
+                    </ul>
+                    <table class="kb-table">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    Extra small<br />
+                                    <span class="font-weight-normal">&lt;576px</span>
+                                </th>
+                                <th>
+                                    Small<br />
+                                    <span class="font-weight-normal">≥576px</span>
+                                </th>
+                                <th>
+                                    Medium<br />
+                                    <span class="font-weight-normal">≥768px</span>
+                                </th>
+                                <th>
+                                    Large<br />
+                                    <span class="font-weight-normal">≥992px</span>
+                                </th>
+                                <th>
+                                    Extra large<br />
+                                    <span class="font-weight-normal">≥1200px</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>.container</code></td>
+                                <td class="text-muted">100%</td>
+                                <td>540px</td>
+                                <td>720px</td>
+                                <td>960px</td>
+                                <td>1140px</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-sm</code></td>
+                                <td class="text-muted">100%</td>
+                                <td>540px</td>
+                                <td>720px</td>
+                                <td>960px</td>
+                                <td>1140px</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-md</code></td>
+                                <td class="text-muted">100%</td>
+                                <td class="text-muted">100%</td>
+                                <td>720px</td>
+                                <td>960px</td>
+                                <td>1140px</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-lg</code></td>
+                                <td class="text-muted">100%</td>
+                                <td class="text-muted">100%</td>
+                                <td class="text-muted">100%</td>
+                                <td>960px</td>
+                                <td>1140px</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-xl</code></td>
+                                <td class="text-muted">100%</td>
+                                <td class="text-muted">100%</td>
+                                <td class="text-muted">100%</td>
+                                <td class="text-muted">100%</td>
+                                <td>1140px</td>
+                            </tr>
+                            <tr>
+                                <td><code>.container-fluid</code></td>
+                                <td class="text-muted">100%</td>
+                                <td class="text-muted">100%</td>
+                                <td class="text-muted">100%</td>
+                                <td class="text-muted">100%</td>
+                                <td class="text-muted">100%</td>
+                            </tr>
+                        </tbody>
+                    </table>
 
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
-                    <br />
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous">
-                                    <span aria-hidden="true">&laquo;</span>
-                                </a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next">
-                                    <span aria-hidden="true">&raquo;</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <br />
-                    <nav aria-label="...">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active" aria-current="page">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <br />
-                    <nav aria-label="...">
-                        <ul class="pagination">
-                            <li class="page-item disabled">
-                                <span class="page-link">Previous</span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item active" aria-current="page">
-                                <span class="page-link">2</span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-
-                    <h3 class="h3">Sizing</h3>
-                    <nav aria-label="...">
-                        <ul class="pagination pagination-lg">
-                            <li class="page-item active" aria-current="page">
-                                <span class="page-link">1</span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        </ul>
-                    </nav>
-                    <br />
-                    <nav aria-label="...">
-                        <ul class="pagination pagination-sm">
-                            <li class="page-item active" aria-current="page">
-                                <span class="page-link">1</span>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        </ul>
-                    </nav>
-
-                    <h3 class="h3">Alignment</h3>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-center">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
-                    <br />
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination justify-content-end">
-                            <li class="page-item disabled">
-                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">Next</a>
-                            </li>
-                        </ul>
-                    </nav>
+                    <h3>Z-index</h3>
+                    <ul>
+                        <li>$zindex-dropdown: 1000 !default;</li>
+                        <li>$zindex-sticky: 1020 !default;</li>
+                        <li>$zindex-fixed: 1030 !default;</li>
+                        <li>$zindex-modal-backdrop: 1040 !default;</li>
+                        <li>$zindex-modal: 1050 !default;</li>
+                        <li>$zindex-popover: 1060 !default;</li>
+                        <li>$zindex-tooltip: 1070 !default;</li>
+                    </ul>
                 </main>
                 <!-- //컨텐츠 -->
             </div>
