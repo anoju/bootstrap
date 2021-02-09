@@ -34,7 +34,7 @@
         });
 
         //사이드바
-        
+        sidebarEvt();
 
         //컴포넌트
         $('.bd-content [href="#"]').click(function(e){e.preventDefault()});
@@ -61,7 +61,10 @@
             $(e.trigger).attr('title',fallbackMsg).tooltip('_fixTitle').tooltip('show').attr('title','Copy to clipboard').tooltip('_fixTitle');
         });
         bsCustomFileInput.init();
-        sidebarEvt();
+        
+
+        //btnTopEvt
+        btnTopEvt();
     })
 
     var sidebarEvt = function(){
@@ -105,6 +108,47 @@
 
         });
     };
+
+    var btnTopEvt = function(){
+        var settings = {
+			button:'#btnTop',
+			text:'컨텐츠 상단으로 이동',
+			min:100,
+			onClass:'on',
+			hoverClass:'hover',
+			scrollSpeed:300
+		};
+		var btnHtml = '<a href="#" id="'+settings.button.substring(1)+'" class="btn-scl-top" title="'+settings.text+'" role="button" aria-label="'+settings.text+'"><i class="bi bi-arrow-up-short"></i></a>';
+		if(!$(settings.button).length){
+			$('body').append(btnHtml);
+		
+			$(document).on('click',settings.button,function(e){
+				e.preventDefault();
+				$('html, body').animate({scrollTop:0},settings.scrollSpeed);
+			}).on('mouseenter',function(){
+				$(settings.button).addClass(settings.hoverclass);
+			}).on('mouseleave',function(){
+				$(settings.button).removeClass(settings.hoverClass);
+			});
+
+			var btnTopOn = function(){
+				$(settings.button).attr('aria-hidden','false').addClass(settings.onClass);
+			};
+
+			var btnTopOff = function(){
+				$(settings.button).attr('aria-hidden','true').removeClass(settings.onClass);
+			};			
+
+			$(window).on('scroll',function(){
+                var $SclTop = $(this).scrollTop();
+				if($SclTop > settings.min){
+					btnTopOn();
+				}else{
+					btnTopOff();
+				}
+			});
+		}
+    }
 })(jQuery);
 (function(){
     'use strict'
