@@ -65,6 +65,9 @@
 
         //btnTopEvt
         btnTopEvt();
+
+        //page title fixed
+        pageTitleEvt();
     })
 
     var sidebarEvt = function(){
@@ -148,6 +151,20 @@
 				}
 			});
 		}
+    }
+
+    var pageTitleEvt = function(){
+        $(window).scroll(function(){
+            var $SclTop = $(this).scrollTop();
+            var $title = $('.kb-page-title');
+            var $titleTop = $title.offset().top;
+            var $headH = $('.kb-navbar').outerHeight();
+            if($SclTop > ($titleTop - $headH)){
+                $title.addClass('fixed')
+            }else{
+                $title.removeClass('fixed')
+            }
+        });
     }
 })(jQuery);
 (function(){
