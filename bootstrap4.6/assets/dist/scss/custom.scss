@@ -20,7 +20,7 @@
     position:fixed;display:flex;bottom:50px;right:15px;width:40px;padding:0;height:40px;background:#ddd;border-radius:50%;align-items:center;justify-content:center;color:#111;overflow:hidden;visibility:hidden;opacity:0;transition:0.3s;z-index:100;
     &.on{visibility:visible;opacity:1;}
     &:hover{color:#111;}
-    .bi{position:relative;font-size:1.8rem;display:block;line-height:1;top:-2px;}
+    .bi{font-size:1.8rem;display:block;}
 }
 @include media(991.98) {
     .btn-scl-top{bottom:60px;}
@@ -396,3 +396,7 @@
         }
     }
 }
+
+
+//dark
+@import 'custom-dark';
