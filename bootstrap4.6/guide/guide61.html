@@ -9,6 +9,7 @@
         <!-- Bootstrap core CSS -->
         <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="../assets/dist/css/bootstrap-icons.css" rel="stylesheet" />
+        <link href="../assets/dist/css/dataTables.bootstrap4-1.10.23.min.css" rel="stylesheet" />
         <link href="../assets/dist/css/custom.min.css" rel="stylesheet" />
     </head>
     <body>
@@ -168,64 +169,135 @@
                     <!-- //컨텐츠헤더 -->
 
                     <!-- 컨텐츠본문 -->
-                    <h2 class="h2"><a href="https://getbootstrap.com/docs/4.6/components/buttons/" target="_blank">Buttons</a></h2>
-                    <button type="button" class="btn btn-primary">Primary</button>
-                    <button type="button" class="btn btn-secondary">Secondary</button>
-                    <button type="button" class="btn btn-success">Success</button>
-                    <button type="button" class="btn btn-danger">Danger</button>
-                    <button type="button" class="btn btn-warning">Warning</button>
-                    <button type="button" class="btn btn-info">Info</button>
-                    <button type="button" class="btn btn-light">Light</button>
-                    <button type="button" class="btn btn-dark">Dark</button>
+                    <h2 class="h2"><a href="https://datatables.net/examples/styling/bootstrap4" target="_blank">DataTable v.1.10.23</a></h2>
 
-                    <button type="button" class="btn btn-link">Link</button>
-
-                    <h3 class="h3">Outline buttons</h3>
-                    <button type="button" class="btn btn-outline-primary">Primary</button>
-                    <button type="button" class="btn btn-outline-secondary">Secondary</button>
-                    <button type="button" class="btn btn-outline-success">Success</button>
-                    <button type="button" class="btn btn-outline-danger">Danger</button>
-                    <button type="button" class="btn btn-outline-warning">Warning</button>
-                    <button type="button" class="btn btn-outline-info">Info</button>
-                    <button type="button" class="btn btn-outline-light">Light</button>
-                    <button type="button" class="btn btn-outline-dark">Dark</button>
-
-                    <h3 class="h3">Sizes</h3>
-                    <button type="button" class="btn btn-primary btn-lg">Large button</button>
-                    <button type="button" class="btn btn-secondary btn-lg">Large button</button>
-                    <br />
-                    <button type="button" class="btn btn-primary btn-sm">Small button</button>
-                    <button type="button" class="btn btn-secondary btn-sm">Small button</button>
-                    <br />
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-                    <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
-
-                    <h3 class="h3">Active state</h3>
-                    <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
-                    <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a>
-
-                    <h3 class="h3">Disabled state</h3>
-                    <button type="button" class="btn btn-lg btn-primary" disabled>Primary button</button>
-                    <button type="button" class="btn btn-secondary btn-lg" disabled>Button</button>
-                    <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
-                    <a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
-
-                    <h3 class="h3">Toggle states</h3>
-                    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">Single toggle</button>
-
-                    <h3 class="h3">Checkbox buttons</h3>
-                    <div class="btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary active"> <input type="checkbox" checked /> Checked </label>
+                    <div class="table-responsive">
+                        <table id="dataTable" class="table table-striped table-sm">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Header</th>
+                                    <th>Header</th>
+                                    <th>Header</th>
+                                    <th>Header</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1,001</td>
+                                    <td>random</td>
+                                    <td>data</td>
+                                    <td>placeholder</td>
+                                    <td>text</td>
+                                </tr>
+                                <tr>
+                                    <td>1,002</td>
+                                    <td>placeholder</td>
+                                    <td>irrelevant</td>
+                                    <td>visual</td>
+                                    <td>layout</td>
+                                </tr>
+                                <tr>
+                                    <td>1,003</td>
+                                    <td>data</td>
+                                    <td>rich</td>
+                                    <td>dashboard</td>
+                                    <td>tabular</td>
+                                </tr>
+                                <tr>
+                                    <td>1,003</td>
+                                    <td>information</td>
+                                    <td>placeholder</td>
+                                    <td>illustrative</td>
+                                    <td>data</td>
+                                </tr>
+                                <tr>
+                                    <td>1,004</td>
+                                    <td>text</td>
+                                    <td>random</td>
+                                    <td>layout</td>
+                                    <td>dashboard</td>
+                                </tr>
+                                <tr>
+                                    <td>1,005</td>
+                                    <td>dashboard</td>
+                                    <td>irrelevant</td>
+                                    <td>text</td>
+                                    <td>placeholder</td>
+                                </tr>
+                                <tr>
+                                    <td>1,006</td>
+                                    <td>dashboard</td>
+                                    <td>illustrative</td>
+                                    <td>rich</td>
+                                    <td>data</td>
+                                </tr>
+                                <tr>
+                                    <td>1,007</td>
+                                    <td>placeholder</td>
+                                    <td>tabular</td>
+                                    <td>information</td>
+                                    <td>irrelevant</td>
+                                </tr>
+                                <tr>
+                                    <td>1,008</td>
+                                    <td>random</td>
+                                    <td>data</td>
+                                    <td>placeholder</td>
+                                    <td>text</td>
+                                </tr>
+                                <tr>
+                                    <td>1,009</td>
+                                    <td>placeholder</td>
+                                    <td>irrelevant</td>
+                                    <td>visual</td>
+                                    <td>layout</td>
+                                </tr>
+                                <tr>
+                                    <td>1,010</td>
+                                    <td>data</td>
+                                    <td>rich</td>
+                                    <td>dashboard</td>
+                                    <td>tabular</td>
+                                </tr>
+                                <tr>
+                                    <td>1,011</td>
+                                    <td>information</td>
+                                    <td>placeholder</td>
+                                    <td>illustrative</td>
+                                    <td>data</td>
+                                </tr>
+                                <tr>
+                                    <td>1,012</td>
+                                    <td>text</td>
+                                    <td>placeholder</td>
+                                    <td>layout</td>
+                                    <td>dashboard</td>
+                                </tr>
+                                <tr>
+                                    <td>1,013</td>
+                                    <td>dashboard</td>
+                                    <td>irrelevant</td>
+                                    <td>text</td>
+                                    <td>visual</td>
+                                </tr>
+                                <tr>
+                                    <td>1,014</td>
+                                    <td>dashboard</td>
+                                    <td>illustrative</td>
+                                    <td>rich</td>
+                                    <td>data</td>
+                                </tr>
+                                <tr>
+                                    <td>1,015</td>
+                                    <td>random</td>
+                                    <td>tabular</td>
+                                    <td>information</td>
+                                    <td>text</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-
-                    <h3 class="h3">radio buttons</h3>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary active"> <input type="radio" name="options" id="option1" checked /> Active </label>
-                        <label class="btn btn-secondary"> <input type="radio" name="options" id="option2" /> Radio </label>
-                        <label class="btn btn-secondary"> <input type="radio" name="options" id="option3" /> Radio </label>
-                    </div>
-
-                    <!-- //컨텐츠본문 -->
                 </main>
                 <!-- //컨텐츠 -->
             </div>
@@ -255,6 +327,11 @@
         </script> -->
         <script src="../assets/dist/js/jquery-3.5.1.min.js"></script>
         <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="../assets/dist/js/jquery.dataTables-1.10.23-kr.min.js"></script>
+        <script src="../assets/dist/js/dataTables.bootstrap4-1.10.23.min.js"></script>
         <script src="../assets/dist/js/custom.js"></script>
+        <script>
+            $('#dataTable').DataTable();
+        </script>
     </body>
 </html>

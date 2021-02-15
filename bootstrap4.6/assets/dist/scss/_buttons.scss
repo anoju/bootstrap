@@ -67,7 +67,9 @@ fieldset:disabled a.btn {
     @include button-variant($value, $value);
   }
 }
-
+.btn-default{
+  @include button-variant(#fff, #ccc);
+}
 @each $color, $value in $theme-colors {
   .btn-outline-#{$color} {
     @include button-outline-variant($value);
