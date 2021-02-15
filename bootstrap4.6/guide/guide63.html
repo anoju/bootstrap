@@ -10,6 +10,9 @@
         <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="../assets/dist/css/bootstrap-icons.css" rel="stylesheet" />
         <link href="../assets/dist/css/custom.min.css" rel="stylesheet" />
+
+        <!-- summernote -->
+        <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet" />
     </head>
     <body>
         <!-- 스킵네비 -->
@@ -168,64 +171,23 @@
                     <!-- //컨텐츠헤더 -->
 
                     <!-- 컨텐츠본문 -->
-                    <h2 class="h2"><a href="https://getbootstrap.com/docs/4.6/components/buttons/" target="_blank">Buttons</a></h2>
-                    <button type="button" class="btn btn-primary">Primary</button>
-                    <button type="button" class="btn btn-secondary">Secondary</button>
-                    <button type="button" class="btn btn-success">Success</button>
-                    <button type="button" class="btn btn-danger">Danger</button>
-                    <button type="button" class="btn btn-warning">Warning</button>
-                    <button type="button" class="btn btn-info">Info</button>
-                    <button type="button" class="btn btn-light">Light</button>
-                    <button type="button" class="btn btn-dark">Dark</button>
-
-                    <button type="button" class="btn btn-link">Link</button>
-
-                    <h3 class="h3">Outline buttons</h3>
-                    <button type="button" class="btn btn-outline-primary">Primary</button>
-                    <button type="button" class="btn btn-outline-secondary">Secondary</button>
-                    <button type="button" class="btn btn-outline-success">Success</button>
-                    <button type="button" class="btn btn-outline-danger">Danger</button>
-                    <button type="button" class="btn btn-outline-warning">Warning</button>
-                    <button type="button" class="btn btn-outline-info">Info</button>
-                    <button type="button" class="btn btn-outline-light">Light</button>
-                    <button type="button" class="btn btn-outline-dark">Dark</button>
-
-                    <h3 class="h3">Sizes</h3>
-                    <button type="button" class="btn btn-primary btn-lg">Large button</button>
-                    <button type="button" class="btn btn-secondary btn-lg">Large button</button>
-                    <br />
-                    <button type="button" class="btn btn-primary btn-sm">Small button</button>
-                    <button type="button" class="btn btn-secondary btn-sm">Small button</button>
-                    <br />
-                    <button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
-                    <button type="button" class="btn btn-secondary btn-lg btn-block">Block level button</button>
-
-                    <h3 class="h3">Active state</h3>
-                    <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Primary link</a>
-                    <a href="#" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Link</a>
-
-                    <h3 class="h3">Disabled state</h3>
-                    <button type="button" class="btn btn-lg btn-primary" disabled>Primary button</button>
-                    <button type="button" class="btn btn-secondary btn-lg" disabled>Button</button>
-                    <a href="#" class="btn btn-primary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Primary link</a>
-                    <a href="#" class="btn btn-secondary btn-lg disabled" tabindex="-1" role="button" aria-disabled="true">Link</a>
-
-                    <h3 class="h3">Toggle states</h3>
-                    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false">Single toggle</button>
-
-                    <h3 class="h3">Checkbox buttons</h3>
-                    <div class="btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary active"> <input type="checkbox" checked /> Checked </label>
+                    <h2 class="h2">
+                        <a href="https://summernote.org/getting-started/" target="_blank">summernote</a><small class="text-muted">부트스트랩3 최적: 부트스트랩4에서 동일하게 나오게 css추가 필요</small>
+                    </h2>
+                    <div>
+                        <textarea class="summernote" name="editordata1"></textarea>
+                    </div>
+                    <div class="mt-5">
+                        <textarea class="summernote" name="editordata2"></textarea>
                     </div>
 
-                    <h3 class="h3">radio buttons</h3>
-                    <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                        <label class="btn btn-secondary active"> <input type="radio" name="options" id="option1" checked /> Active </label>
-                        <label class="btn btn-secondary"> <input type="radio" name="options" id="option2" /> Radio </label>
-                        <label class="btn btn-secondary"> <input type="radio" name="options" id="option3" /> Radio </label>
+                    <h2 class="h2">
+                        <a href="https://www.tiny.cloud/blog/bootstrap-wysiwyg-editor/" target="_blank">tinymce</a><small class="text-muted">(무료 API키 필요?)</small>,
+                        <small><a href="https://www.tiny.cloud/docs/integrations/bootstrap/" target="_blank">API</a></small>
+                    </h2>
+                    <div class="form-group">
+                        <textarea id="editor"></textarea>
                     </div>
-
-                    <!-- //컨텐츠본문 -->
                 </main>
                 <!-- //컨텐츠 -->
             </div>
@@ -256,5 +218,41 @@
         <script src="../assets/dist/js/jquery-3.5.1.min.js"></script>
         <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
         <script src="../assets/dist/js/custom.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+        <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script>
+            $(document).ready(function () {
+                $('.summernote').summernote({
+                    height: 300,
+                    codemirror: {
+                        // codemirror options
+                        theme: 'monokai'
+                    }
+                });
+            });
+
+            tinymce.init({
+                selector: 'textarea#editor',
+                height: 300,
+                skin: 'bootstrap',
+                plugins: 'lists, link, image, media',
+                toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
+                menubar: false,
+                setup: editor => {
+                    // Apply the focus effect
+                    editor.on('init', () => {
+                        editor.getContainer().style.transition = 'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out';
+                    });
+                    editor.on('focus', () => {
+                        (editor.getContainer().style.boxShadow = '0 0 0 .2rem rgba(0, 123, 255, .25)'), (editor.getContainer().style.borderColor = '#80bdff');
+                    });
+                    editor.on('blur', () => {
+                        (editor.getContainer().style.boxShadow = ''), (editor.getContainer().style.borderColor = '');
+                    });
+                }
+            });
+        </script>
     </body>
 </html>
