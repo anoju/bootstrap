@@ -20,23 +20,16 @@
 (function($){
     'use strict'
     $(function(){
-        //헤더
-        $('.kb-navbar-btn, .kb-sidebar-close').click(function(e){
-            e.preventDefault();
-            var sideBar = $('.kb-sidebar')
-            if(sideBar.hasClass('open')){
-                sideBar.removeClass('open');
-                $('body').removeClass('gnb-open')
-            }else{
-                sideBar.addClass('open');
-                $('body').addClass('gnb-open')
-            }
-        });
-
-        //사이드바
+        bootstrapEvt();
+        device.check();
+        headerEvt();
         sidebarEvt();
+        btnTopEvt();
+        pageTitleEvt();
+        table.checkbox();
+    })
 
-        //컴포넌트
+    var bootstrapEvt = function(){
         $('.bd-content [href="#"]').click(function(e){e.preventDefault()});
         $('[data-toggle="tooltip"]').tooltip()
         $('[data-toggle="popover"]').popover();
@@ -61,28 +54,194 @@
             $(e.trigger).attr('title',fallbackMsg).tooltip('_fixTitle').tooltip('show').attr('title','Copy to clipboard').tooltip('_fixTitle');
         });
         bsCustomFileInput.init();
-        
+    };
 
-        //btnTopEvt
-        btnTopEvt();
+    //PC 디바이스 체크
+    var isPC = {
+        window: function(){
+            return navigator.userAgent.match(/windows/i) == null ? false : true;},
+        mac: function(){
+            return navigator.userAgent.match(/macintosh/i) == null ? false : true;},
+        chrome: function(){
+            return navigator.userAgent.match(/chrome/i) == null ? false : true;},
+        firefox: function(){
+            return navigator.userAgent.match(/firefox/i) == null ? false : true;},
+        opera: function(){
+            return navigator.userAgent.match(/opera|OPR/i) == null ? false : true;},
+        safari: function(){
+            return navigator.userAgent.match(/safari/i) == null ? false : true;},
+        edge: function(){
+            return navigator.userAgent.match(/edge/i) == null ? false : true;},
+        msie: function(){
+            return navigator.userAgent.match(/rv:11.0|msie/i) == null ? false : true;},
+        ie11: function(){
+            return navigator.userAgent.match(/rv:11.0/i) == null ? false : true;},
+        ie10: function(){
+            return navigator.userAgent.match(/msie 10.0/i) == null ? false : true;},
+        ie9: function(){
+            return navigator.userAgent.match(/msie 9.0/i) == null ? false : true;},
+        ie8: function(){
+            return navigator.userAgent.match(/msie 8.0/i) == null ? false : true;},
+        any: function(){
+            return (isPC.window()|| isPC.mac());},
+        check: function(){
+            if(isPC.any()){
+                if(isPC.window())$('html').addClass('window');
+                if(isPC.mac())$('html').addClass('mac');
+                if(isPC.msie())$('html').addClass('msie');
+                if(isPC.ie11())$('html').addClass('ie11');
+                if(isPC.ie10())$('html').addClass('ie10');
+                if(isPC.ie9())$('html').addClass('ie9');
+                if(isPC.ie8())$('html').addClass('ie8');
+                if(isPC.edge()){
+                    $('html').addClass('edge');
+                }else if(isPC.opera()){
+                    $('html').addClass('opera');
+                }else if(isPC.chrome()){
+                    $('html').addClass('chrome');
+                }else if(isPC.safari()){
+                    $('html').addClass('safari');
+                }else if(isPC.firefox()){
+                    $('html').addClass('firefox');
+                }
+            }
+        }
+    };
 
-        //page title fixed
-        pageTitleEvt();
-    })
+    //모바일 디바이스 체크
+    var isMobile = {
+        Android: function(){
+            return navigator.userAgent.match(/Android/i) == null ? false : true;
+        },
+        BlackBerry: function(){
+            return navigator.userAgent.match(/BlackBerry/i) == null ? false : true;
+        },
+        iOS: function(){
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i) == null ? false : true;
+        },
+        iPhone :function(){
+            return navigator.userAgent.match(/iPhone/i) == null ? false : true;
+        },
+        iPad :function(){
+            return navigator.userAgent.match(/iPad/i) == null ? false : true;
+        },
+        iPhoneVersion :function(){
+            var $sliceStart = navigator.userAgent.indexOf('iPhone OS') + 10,
+                $sliceEnd = $sliceStart + 2,
+                $version = parseFloat(navigator.userAgent.slice($sliceStart,$sliceEnd));
+            return $version;
+        },
+        Opera: function(){
+            return navigator.userAgent.match(/Opera Mini/i) == null ? false : true;
+        },
+        Windows: function(){
+            return navigator.userAgent.match(/IEMobile/i) == null ? false : true;
+        },
+        tablet: function(){
+            if(isMobile.any()){
+                if(window.screen.width < window.screen.height){
+                    return window.screen.width > 760 ? true : false;
+                }else{
+                    return window.screen.height > 760 ? true : false;
+                }
+            }
+        },
+        any: function(){
+            return (isMobile.Android() || isMobile.iOS() || isMobile.BlackBerry() || isMobile.Opera() || isMobile.Windows());
+        },
+        check: function(){
+            if(isMobile.any()){
+                $('html').addClass('mobile');
+                if(isMobile.tablet())$('html').addClass('tablet');
+            }
+            if(isMobile.iOS())$('html').addClass('ios');
+            if(isMobile.Android())$('html').addClass('android');
+            //if(isMobile.iPhoneVersion() >= 12)$('html').addClass('ios12');
+        }
+    };
+
+    //디바이스체크 실행
+    var device = {
+        iPhone8PlusH: 736,
+        screenH:window.screen.height,
+        screenW:window.screen.width,
+        check:function(){
+            isMobile.check();
+            isPC.check();
+            if(isMobile.any()){
+                var $pixelRatio = Math.round(window.devicePixelRatio);
+                if(!!$pixelRatio) $('html').addClass('pixelRatio'+$pixelRatio);
+            }
+            var $isIPhoneX = isMobile.iPhone() && device.screenH > device.iPhone8PlusH ? true : false;
+            if($isIPhoneX){
+                //첫로딩
+                if($(window).width() < $(window).height()){
+                    device.isIPhoneX();
+                }else{
+                    device.notIPhoneX();
+                }
+            }
+
+            //가로, 세로 회전시
+            if(isMobile.any()){
+                if(window.orientation == 0){
+                    $('html').removeClass('landscape');
+                }else{
+                    $('html').addClass('landscape');
+                }
+                $(window).on('orientationchange',function(){
+                    if(window.orientation == 0){
+                        $('html').removeClass('landscape');
+                        if($isIPhoneX)device.isIPhoneX();
+                    }else{
+                        $('html').addClass('landscape');
+                        if($isIPhoneX)device.notIPhoneX();
+                    }
+                });
+            }
+        }
+    };
+
+    var headerEvt = function(){
+        $('.kb-navbar-btn, .kb-sidebar-close').click(function(e){
+            e.preventDefault();
+            var sideBar = $('.kb-sidebar')
+            if(sideBar.hasClass('open')){
+                sideBar.removeClass('open');
+                $('body').removeClass('gnb-open')
+            }else{
+                sideBar.addClass('open');
+                $('body').addClass('gnb-open')
+            }
+        });
+    };
 
     var sidebarEvt = function(){
         var $link = $('.kb-lnb-link');
         var $path = location.pathname;
+        var $title = $('.kb-title h1').text();
         $link.each(function(){
             var $this = $(this);
-            var $href = $this.attr('href');
-            if($this.next().length)$this.addClass('in-sub');
-            if($path.indexOf($href) > 0){
+            var $text = $this.text();
+            var $href = $this.attr('href').split('/').pop();
+            if($this.next().length){
+                $this.addClass('in-sub');
+                $this.addClass('open');
+                $this.next().show();
+            }
+            var isActive = false;
+            if($text === $title){
+                isActive = true;
+            }else if($path.indexOf($href) > -1){
+                isActive = true;
+            }
+
+            if(isActive){
                 $this.addClass('active');
                 $this.parents('ul').prev('.kb-lnb-link').addClass('active');
             }
         });
-
+        /*
         var $active = $('.kb-lnb-link.active');
         $active.each(function(){
             var $this = $(this);
@@ -91,6 +250,7 @@
                 $this.next().show();
             }
         });
+        */
 
         $(document).on('click','.kb-lnb-link.in-sub',function(e){
             e.preventDefault();
@@ -102,14 +262,15 @@
             }else{
                 $this.addClass('open');
                 $subMenu.stop(true, false).slideDown(300);
-                $this.parent().siblings().find('>.open').each(function(){
-                    var $open = $(this)
-                    $open.removeClass('open');
-                    $open.next().stop(true, false).slideUp(300);
-                });
+                // $this.parent().siblings().find('>.open').each(function(){
+                //     var $open = $(this)
+                //     $open.removeClass('open');
+                //     $open.next().stop(true, false).slideUp(300);
+                // });
             }
 
         });
+        
     };
 
     var btnTopEvt = function(){
@@ -165,6 +326,31 @@
                 $title.removeClass('fixed')
             }
         });
+    }
+
+    var table = {
+        checkbox:function(){
+            $(document).on('change','.table input.ui-tbl-chk-all',function(){
+                var $wrap = $(this).closest('.table'),
+                    $chk = $wrap.find('input.ui-tbl-chk').not(':disabled');
+                if($(this).prop('checked') == true){
+                    $chk.prop('checked',true).change();
+                }else{
+                    $chk.prop('checked',false).change();
+                }
+            });
+            $(document).on('change','.table input.ui-tbl-chk',function(){
+                var $wrap = $(this).closest('.table'),
+                    $allChk = $wrap.find('input.ui-tbl-chk-all'),
+                    $chkLength = $wrap.find('input.ui-tbl-chk').not(':disabled').length,
+                    $checkedLength = $wrap.find('input.ui-tbl-chk:checked').length;
+                if($chkLength == $checkedLength){
+                    $allChk.prop('checked',true);
+                }else{
+                    $allChk.prop('checked',false);
+                }
+            });
+        }
     }
 })(jQuery);
 (function(){
