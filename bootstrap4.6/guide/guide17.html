@@ -24,122 +24,13 @@
         <!-- wrap -->
         <section class="kb-wrap">
             <!-- 헤더 -->
-            <header class="navbar navbar-expand kb-navbar">
-                <div class="navbar-brand-wrap">
-                    <a href="#" class="kb-navbar-btn" aria-label="메뉴열기"><i></i><span class="sr-only">메뉴열기</span></a>
-                    <a class="navbar-brand" href="../index.html" aria-label="마이데이타 관리자"><span class="sr-only">마이데이타 관리자</span></a>
-                </div>
-
-                <div class="navbar-nav-scroll">
-                    <ul class="navbar-nav flex-row kb-navbar-nav">
-                        <li class="nav-item">
-                            <!-- 활성화는 active 클래스 -->
-                            <a class="nav-link active" href="#">컨텐츠관리</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">알림설정</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">운영관리</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">게시판관리</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">통계관리</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <ul class="navbar-nav ml-md-auto kb-navbar-util">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-box-arrow-in-right"></i> 로그인</a>
-                    </li>
-                    <li class="nav-item">
-                        <span class="nav-link"><strong>홍길동</strong> 님</span>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-box-arrow-in-left"></i> 로그아웃</a>
-                    </li>
-                </ul>
-            </header>
+            <div data-include-html="../include/header.html"></div>
             <!-- //헤더 -->
 
             <!-- container -->
             <div class="kb-container">
                 <!-- 사이드바 -->
-                <div class="kb-sidebar">
-                    <div class="kb-sidebar-head">
-                        <a href="#" class="kb-sidebar-close" aria-label="메뉴닫기"><span class="sr-only">메뉴닫기</span></a>
-                    </div>
-                    <div class="kb-sidebar-inner" id="kb-lnb-nav">
-                        <nav class="kb-lnb" aria-label="Main navigation">
-                            <ul>
-                                <li>
-                                    <a href="#" class="kb-lnb-link">Layout</a>
-                                    <ul>
-                                        <li><a class="kb-lnb-link" href="guide41.html">Overview</a></li>
-                                        <li><a class="kb-lnb-link" href="guide42.html">Grid</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="kb-lnb-link">Content</a>
-                                    <ul>
-                                        <li><a class="kb-lnb-link" href="guide51.html">Typography</a></li>
-                                        <li><a class="kb-lnb-link" href="guide52.html">Images & Figures</a></li>
-                                        <li><a class="kb-lnb-link" href="guide53.html">Tables</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="kb-lnb-link">Components</a>
-                                    <ul>
-                                        <li><a class="kb-lnb-link" href="guide1.html">Alerts</a></li>
-                                        <li><a class="kb-lnb-link" href="guide2.html">Badges</a></li>
-                                        <li><a class="kb-lnb-link" href="guide3.html">Buttons</a></li>
-                                        <li><a class="kb-lnb-link" href="guide4.html">Button group</a></li>
-                                        <li><a class="kb-lnb-link" href="guide5.html">Cards</a></li>
-                                        <li><a class="kb-lnb-link" href="guide6.html">Carousel</a></li>
-                                        <li><a class="kb-lnb-link" href="guide7.html">Collapse</a></li>
-                                        <li><a class="kb-lnb-link" href="guide8.html">Dropdowns</a></li>
-                                        <li><a class="kb-lnb-link" href="guide9.html">Forms</a></li>
-                                        <li><a class="kb-lnb-link" href="guide10.html">Input group</a></li>
-                                        <li><a class="kb-lnb-link" href="guide11.html">Jumbotron</a></li>
-                                        <li><a class="kb-lnb-link" href="guide12.html">List group</a></li>
-                                        <li><a class="kb-lnb-link" href="guide13.html">Media object</a></li>
-                                        <li><a class="kb-lnb-link" href="guide14.html">Modal</a></li>
-                                        <li><a class="kb-lnb-link" href="guide15.html">Navs</a></li>
-                                        <li><a class="kb-lnb-link" href="guide16.html">Pagination</a></li>
-                                        <li><a class="kb-lnb-link" href="guide17.html">Popovers</a></li>
-                                        <li><a class="kb-lnb-link" href="guide18.html">Progress</a></li>
-                                        <li><a class="kb-lnb-link" href="guide19.html">Scrollspy</a></li>
-                                        <li><a class="kb-lnb-link" href="guide20.html">Spinners</a></li>
-                                        <li><a class="kb-lnb-link" href="guide21.html">Toasts</a></li>
-                                        <li><a class="kb-lnb-link" href="guide22.html">Tooltips</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="kb-lnb-link">Utilities</a>
-                                    <ul>
-                                        <li><a class="kb-lnb-link" href="guide31.html">Borders & Clearfix & Close icon</a></li>
-                                        <li><a class="kb-lnb-link" href="guide32.html">Color & Display & Embeds</a></li>
-                                        <li><a class="kb-lnb-link" href="guide33.html">Flex & Float & Text selection</a></li>
-                                        <li><a class="kb-lnb-link" href="guide34.html">Overflow & Float & Screen readers</a></li>
-                                        <li><a class="kb-lnb-link" href="guide35.html">Shadows & Sizing & Spacing</a></li>
-                                        <li><a class="kb-lnb-link" href="guide36.html">Stretched link & Text & Vertical alignment & Visibility</a></li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    <a href="#" class="kb-lnb-link">plugins</a>
-                                    <ul>
-                                        <li><a class="kb-lnb-link" href="guide61.html">DataTable</a></li>
-                                        <li><a class="kb-lnb-link" href="guide62.html">Chart.js</a></li>
-                                        <li><a class="kb-lnb-link" href="guide63.html">WYSIWYG editor</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
+                <div data-include-html="../include/sidebar.html"></div>
                 <!-- //사이드바 -->
 
                 <!-- 컨텐츠 -->
@@ -148,11 +39,11 @@
                     <div class="kb-page-title">
                         <div>
                             <div class="kb-title" id="content">
-                                <h1>내자산 Q&A</h1>
+                                <h1>부트스트랩 가이드</h1>
                             </div>
                             <div class="kb-page-btn">
-                                <button type="button" class="btn btn-sm btn-secondary">삭제</button>
-                                <button type="button" class="btn btn-sm btn-primary">저장</button>
+                                <button type="button" class="btn btn-gray">삭제</button>
+                                <button type="button" class="btn btn-yellow">저장</button>
                             </div>
                         </div>
                     </div>
@@ -177,19 +68,7 @@
             <!-- //container -->
 
             <!-- 푸터 -->
-            <footer class="kb-footer">
-                <div>
-                    <div>
-                        <ul class="kb-footer-links">
-                            <li><a href="#">사용자화면</a></li>
-                            <li><a href="#">KB증권</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <span>copyright 2021 &copy; KB Securities co.,Ltd. All Rights Reserved</span>
-                    </div>
-                </div>
-            </footer>
+            <div data-include-html="../include/footer.html"></div>
             <!-- 푸터 -->
         </section>
         <!-- //wrap -->
