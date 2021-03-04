@@ -9,6 +9,7 @@
         <!-- Bootstrap core CSS -->
         <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet" />
         <link href="../assets/dist/css/bootstrap-icons.css" rel="stylesheet" />
+        <link href="../assets/dist/css/dataTables.bootstrap4-1.10.23.min.css" rel="stylesheet" />
         <link href="../assets/dist/css/custom.min.css" rel="stylesheet" />
     </head>
     <body>
@@ -35,37 +36,52 @@
 
                 <!-- 컨텐츠 -->
                 <main class="kb-content" role="main">
-                    <!-- 컨텐츠헤더 -->
                     <div class="kb-page-title">
                         <div>
                             <div class="kb-title" id="content">
-                                <h1>부트스트랩 가이드</h1>
-                            </div>
-                            <div class="kb-page-btn">
-                                <button type="button" class="btn btn-gray">삭제</button>
-                                <button type="button" class="btn btn-yellow">저장</button>
+                                <h1>관리자 코딩리스트</h1>
                             </div>
                         </div>
                     </div>
-                    <!-- //컨텐츠헤더 -->
 
-                    <!-- 컨텐츠본문 -->
-                    <h2 class="h2"><a href="https://getbootstrap.com/docs/4.6/components/jumbotron/" target="_blank">Jumbotron</a></h2>
-                    <div class="jumbotron">
-                        <h1 class="display-4">Hello, world!</h1>
-                        <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-                        <hr class="my-4" />
-                        <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-                        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-                    </div>
-                    <br />
-                    <div class="jumbotron jumbotron-fluid">
-                        <div class="container">
-                            <h1 class="display-4">Fluid jumbotron</h1>
-                            <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
-                        </div>
-                    </div>
-                    <!-- //컨텐츠본문 -->
+                    <table class="kb-table">
+                        <thead>
+                            <tr>
+                                <th>1뎁스</th>
+                                <th>2뎁스</th>
+                                <th>3뎁스</th>
+                                <th>상세</th>
+                                <th>화면 ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="5">컨텐츠관리</td>
+                                <td rowspan="5">오늘</td>
+                                <td rowspan="2">내자산 Q&A</td>
+                                <td>리스트</td>
+                                <td><a href="../01/AD01A001.html" target="_blank">AD01A001</a></td>
+                            </tr>
+                            <tr>
+                                <td>상세</td>
+                                <td><a href="../01/AD01A002.html" target="_blank">AD01A002</a></td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">투자상상 퀴즈</td>
+                                <td>리스트</td>
+                                <td><a href="../01/AD01A003.html" target="_blank">AD01A003</a></td>
+                            </tr>
+                            <tr>
+                                <td>상세</td>
+                                <td><a href="../01/AD01A004.html" target="_blank">AD01A004</a></td>
+                            </tr>
+                            <tr>
+                                <td>인사이트 알림</td>
+                                <td>리스트+상세(팝업)</td>
+                                <td><a href="../01/AD01A005.html" target="_blank">AD01A005</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </main>
                 <!-- //컨텐츠 -->
             </div>
