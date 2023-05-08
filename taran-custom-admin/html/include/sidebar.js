@@ -1,7 +1,9 @@
 // <script class="__include" src="../include/sidebar.js"></script>
 
 (function () {
-  let str = `<div class="kb-sidebar">
+  const isMain = document.querySelector('.kb-container.main');
+  const hideClass  = isMain ? 'hide' : '';
+  let str = `<div class="kb-sidebar ${hideClass}">
   <div class="kb-sidebar-head">
     <button type="button" class="kb-sidebar-pc-btn"><i class="bi bi-chevron-left"></i><span class="sr-only">메뉴</span></button>
     <button type="button" class="kb-sidebar-close" aria-label="메뉴"></button>

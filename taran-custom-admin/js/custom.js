@@ -345,6 +345,7 @@
 
         var dep1Active = $('.kb-lnb-dep1>.active');
         var lnbTit = dep1Active.children('.kb-lnb-link').text();
+        if ($('.kb-container.main').length) return;
         if (lnbTit !== '') {
           $('.kb-sidebar').removeClass('hide');
           $('.kb-footer').removeClass('full');
