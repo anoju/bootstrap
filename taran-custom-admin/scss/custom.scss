@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 @import '../lib/bootstrap/scss/functions';
 @import '../lib/bootstrap/scss/variables';
 @import '../lib/bootstrap/scss/mixins';
@@ -383,15 +385,15 @@ $ratios: 3 2, 4 3, 5 3, 5 4, 16 9, 17 10, 25 16;
     }
   }
   .navbar-brand {
-    width: 1.75rem;
+    width: 4rem;
     padding: 0;
     margin: 0;
     background: url(../images/common/logo.png) no-repeat center center;
     background-size: contain;
-    &:after {
+    &:before {
       content: '';
       display: block;
-      padding-top: 100%;
+      padding-top: math.div(90, 284) * 100%;
     }
   }
 }
@@ -521,6 +523,9 @@ $ratios: 3 2, 4 3, 5 3, 5 4, 16 9, 17 10, 25 16;
     .kb-navbar-util {
       display: none;
       margin-left: 0;
+      @include media($mobile-size) {
+        display: flex;
+      }
     }
   }
   .kb-sidebar-pc-btn,
@@ -2191,4 +2196,4 @@ $ratios: 3 2, 4 3, 5 3, 5 4, 16 9, 17 10, 25 16;
   }
 }
 //dark
-@import 'custom-dark';
+//@import 'custom-dark';

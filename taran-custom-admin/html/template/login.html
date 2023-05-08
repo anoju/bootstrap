@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <script class="__include" src="../include/meta.js"></script>
+    <title>타란 관리자</title>
+    <script class="__include" src="../include/head.js"></script>
+    <script>
+      $(function () {
+        $('.btn-primary').click(function () {
+          //location.href = './00/main.html';
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="form-signin-wrap">
+      <div class="form-signin">
+        <div class="text-center mb-4">
+          <!-- 2022-04-29 : 수정 -->
+          <h1 class="mb-4">
+            <span><img src="../../images/common/logo.png" alt="끌" /></span>
+          </h1>
+        </div>
+
+        <div class="form-label-group">
+          <input type="email" id="userNumber" class="form-control" placeholder="아이디(사번)" required autofocus />
+          <label for="userNumber">아이디(사번)</label>
+        </div>
+
+        <div class="form-label-group">
+          <input type="password" id="userPassword" class="form-control" placeholder="비밀번호" required />
+          <label for="userPassword">비밀번호</label>
+        </div>
+
+        <div class="mb-3 text-center">
+          <!-- <span class="text-danger">로그인 계정을 다시 확인해 주세요.</span> -->
+          <!-- <span class="text-danger">비밀번호 입력오류 5회 초과 시 로그인이 차단됩니다.</span> -->
+          <span class="text-danger">비밀번호 5회가 초과되었습니다. <br />수퍼관리자를 통해 비밀번호 초기화 후 이용해 주세요</span>
+        </div>
+
+        <!-- <div class="custom-control custom-checkbox mb-3">
+          <input type="checkbox" class="custom-control-input" value="remember-me" id="rememberMe" />
+          <label class="custom-control-label" for="rememberMe">ID저장</label>
+        </div> -->
+        <div><button class="btn btn-lg btn-primary btn-block" type="submit">로그인</button></div>
+        <div class="mt-5 mb-0 text-muted text-center">&copy; TARAN UX co.,Ltd. All Rights Reserved</div>
+      </div>
+    </div>
+
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script>
+            window.jQuery || document.write('<script src="../js/jquery-3.5.1.slim.min.js"><\/script>');
+        </script> -->
+    <script>
+      $('.btn-primary').click(function () {
+        location.href = 'main.html';
+      });
+    </script>
+  </body>
+</html>
