@@ -28,10 +28,10 @@
   <div class="navbar-nav-scroll">
     <ul class="navbar-nav flex-row kb-navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="#">템플릿</a>
+        <a class="nav-link" href="../template/list.html">리스트(템플릿)</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">메뉴명2</a>
+        <a class="nav-link" href="../guide/guide1.html">가이드(부트스트랩)</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">메뉴명3</a>
