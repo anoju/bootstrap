@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover" />
+    <title>부트스트랩 Admin</title>
+    <link rel="stylesheet" href="./static/css/index.min.css" />
+    <link rel="stylesheet" href="./static/css/splitting.css" />
+    <link rel="stylesheet" href="./static/css/splitting-cells.css" />
+  </head>
+  <body>
+    <div class="index">
+      <div>
+        <h1 class="h1" data-splitting><strong>부트스트랩</strong><br />admin 테마 리스트</h1>
+        <h2 class="h2">Used</h2>
+        <div class="index-btn">
+          <a href="../taran-custom-admin/index.html" target="_blank">Taran Custom Admin</a>
+        </div>
+        <h2 class="h2">Unused</h2>
+        <div class="index-btn">
+          <a href="../concept-admin/index.html" target="_blank">Concept Admin</a>
+          <a href="../ela-admin/index.html" target="_blank">Ela Admin</a>
+          <a href="../material-dashboard/template.html" target="_blank">Material Dashboard</a>
+          <a href="../sb-admin-2/index.html" target="_blank">SB Admin2</a>
+          <a href="../tabler-dev/index.html" target="_blank">Tabler Dev</a>
+        </div>
+      </div>
+    </div>
+    <script src="./static/js/lib/jquery-3.6.0.min.js"></script>
+    <script src="./static/js/lib/mo-0.288.1.min.js"></script>
+    <script src="./static/js/lib/mojs-player-0.43.15.min.js"></script>
+    <script src="./static/js/lib/splitting.min.js"></script>
+    <script>
+      document.addEventListener('click', event => {
+        bursty(event.pageX, event.pageY);
+        setTimeout(() => removeBursty(), 2200);
+      });
+
+      setInterval(() => randomizedConfetti(), 500);
+      setTimeout(() => {
+        setInterval(() => removeBursty(), 500);
+      }, 2200);
+
+      function bursty(x, y) {
+        const burst = new mojs.Burst({
+          left: 0,
+          top: 0,
+          radius: { 0: 200 },
+          count: 20,
+          degree: 360,
+          children: {
+            fill: { white: '#34E1FF' },
+            duration: 2000
+          }
+        })
+          .tune({
+            x: x,
+            y: y
+          })
+          .replay();
+      }
+      function removeBursty() {
+        const $mojsEl = document.querySelector('[data-name="mojs-shape"]');
+        if ($mojsEl) $mojsEl.remove();
+      }
+
+      function randomizedConfetti() {
+        let randomX = Math.floor(Math.random() * (document.body.clientWidth - 100) + 0);
+        let randomY = Math.floor(Math.random() * (window.innerHeight - 200) + 0);
+        bursty(randomX, randomY);
+      }
+
+      const $spl = Splitting();
+    </script>
+  </body>
+</html>
